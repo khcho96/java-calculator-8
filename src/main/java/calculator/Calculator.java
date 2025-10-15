@@ -1,7 +1,6 @@
 package calculator;
 
 public class Calculator {
-
     private InputObj inputObj;
     private OutputObj outputObj;
 
@@ -11,11 +10,10 @@ public class Calculator {
     }
 
     public void calculate() {
-        String inputValue = inputObj.readInput();
-
+        // TODO: 메인 로직
     }
 
-    private static boolean isCustom(String input) {
+    public boolean isCustom(String input) {
         return input.strip().matches("^//.+\\\\n.*");
     }
 }
