@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.List;
+
 public class Validator {
 
     public static void validateNull(String input) {
@@ -9,8 +11,16 @@ public class Validator {
     }
 
     public static void validateInputFormat(String input) {
-        if (!input.strip().matches("^(//.+\\\\n)?.*")) {
+        if (!input.strip().matches("^(//.+?\\\\n)?.*")) {
             throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
+        }
+    }
+
+    public static void validateNumber(List<String> values) {
+        for (String value : values) {
+            if (!value.strip().matches("\\d+")) {
+                throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
+            }
         }
     }
 }
