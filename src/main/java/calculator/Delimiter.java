@@ -18,7 +18,7 @@ public class Delimiter {
     public List<String> split(String input) {
         wrap();
         return Stream.of(input.split(delimiter))
-                .filter(s->!s.isBlank())
+                .filter(s -> !s.isBlank())
                 .toList();
     }
 
