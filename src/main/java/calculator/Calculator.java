@@ -29,14 +29,14 @@ public class Calculator {
         // 구분자 객체 생성
         Delimiter delimiter = new Delimiter();
 
-        // 커스텀 구분자가 지정되었다면 커스텈 구분자를 추출 및 기본 구분자에 추가한다.
+        String target = input;
         if (isCustom(input)) {
+            // 커스텀 구분자가 지정되었다면 커스텀 구분자를 추출 및 기본 구분자에 추가한다.
             String customDelimiter = extractCustomDelimiter(input);
             delimiter.add(customDelimiter);
+            // 타겟 문자열을 추출한다.
+            target = extractTarget(input);
         }
-
-        // 타겟 문자열을 추출한다.
-        String target = extractTarget(input);
 
         // 타겟 문자열을 구분자로 분리한다.
         List<String> splitValues = delimiter.split(target);
