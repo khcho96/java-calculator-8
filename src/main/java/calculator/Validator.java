@@ -18,7 +18,7 @@ public class Validator {
 
     public static void validateNumber(List<String> values) {
         for (String value : values) {
-            if (!value.strip().matches("\\d+")) {
+            if (!value.strip().matches("\\d+") || value.strip().equals("0")) {
                 throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
             }
         }
