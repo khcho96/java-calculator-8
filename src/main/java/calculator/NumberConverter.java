@@ -7,6 +7,7 @@ public class NumberConverter {
 
     public static List<BigInteger> convertStringToNumber(List<String> strings) {
         return strings.stream()
+                .map(String::strip)
                 .map(BigInteger::new)
                 .toList();
     }
