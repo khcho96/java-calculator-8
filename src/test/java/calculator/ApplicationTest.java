@@ -129,6 +129,8 @@ class ApplicationTest extends NsTest {
         });
     }
 
+
+
     @Test
     void 커스텀_구분자_0개이하_공백_입력() {
         assertSimpleTest(() ->
@@ -180,15 +182,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 커스텀_구분자_형식_오류2() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("//;\\n;1;2;3;"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 커스텀_구분자_형식_오류3() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("//;\\n1;;2;3"))
+                assertThatThrownBy(() -> runException("//;\\n1;2;3//;\\n1;2;3"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
