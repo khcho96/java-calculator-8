@@ -129,8 +129,6 @@ class ApplicationTest extends NsTest {
         });
     }
 
-
-
     @Test
     void 커스텀_구분자_0개이하_공백_입력() {
         assertSimpleTest(() ->

@@ -5,7 +5,9 @@ import static calculator.Extractor.extractCustomDelimiter;
 import static calculator.Extractor.extractTarget;
 import static calculator.Format.isCustom;
 import static calculator.NumberConverter.convertStringToNumber;
-import static calculator.Validator.*;
+import static calculator.Validator.validateInputFormat;
+import static calculator.Validator.validateNull;
+import static calculator.Validator.validateNumber;
 
 import java.math.BigInteger;
 import java.util.List;
