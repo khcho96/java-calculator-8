@@ -1,25 +1,29 @@
 package calculator;
 
+import static calculator.Format.NUMBER_FORMAT;
+import static calculator.Format.VALID_INPUT_FORMAT;
+import static calculator.ErrorMessage.*;
+
 import java.util.List;
 
 public class Validator {
 
     public static void validateNull(String input) {
         if (input == null) {
-            throw new IllegalArgumentException("입력이 유효하지 않습니다.");
+            throw new IllegalArgumentException(INVALID_INPUT_ERROR);
         }
     }
 
     public static void validateInputFormat(String input) {
-        if (!input.strip().matches("^(//.+?\\\\n)?.*")) {
-            throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
+        if (!input.strip().matches(VALID_INPUT_FORMAT)) {
+            throw new IllegalArgumentException(INPUT_FORMAT_ERROR);
         }
     }
 
     public static void validateNumber(List<String> values) {
         for (String value : values) {
-            if (!value.strip().matches("\\d+") || value.strip().equals("0")) {
-                throw new IllegalArgumentException("잘못된 형식의 입력입니다.");
+            if (!value.strip().matches(NUMBER_FORMAT) || value.strip().equals("0")) {
+                throw new IllegalArgumentException(INPUT_FORMAT_ERROR);
             }
         }
     }
