@@ -1,6 +1,7 @@
 package calculator;
 
-import static calculator.Format.*;
+import static calculator.Format.CUSTOM_FORMAT_PREFIX;
+import static calculator.Format.CUSTOM_FORMAT_SUFFIX;
 
 public class Extractor {
 

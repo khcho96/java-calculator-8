@@ -1,8 +1,9 @@
 package calculator;
 
 import static calculator.Adder.getSum;
+import static calculator.Extractor.extractCustomDelimiter;
+import static calculator.Extractor.extractTarget;
 import static calculator.Format.isCustom;
-import static calculator.Extractor.*;
 import static calculator.NumberConverter.convertStringToNumber;
 import static calculator.Validator.*;
 

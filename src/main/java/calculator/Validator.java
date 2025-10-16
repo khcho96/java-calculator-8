@@ -1,8 +1,9 @@
 package calculator;
 
+import static calculator.ErrorMessage.INPUT_FORMAT_ERROR;
+import static calculator.ErrorMessage.INVALID_INPUT_ERROR;
 import static calculator.Format.NUMBER_FORMAT;
 import static calculator.Format.VALID_INPUT_FORMAT;
-import static calculator.ErrorMessage.*;
 
 import java.util.List;
 
