@@ -1,18 +1,19 @@
 package calculator.util;
 
-import static calculator.data.Format.CUSTOM_FORMAT_PREFIX;
-import static calculator.data.Format.CUSTOM_FORMAT_SUFFIX;
+import static calculator.data.Format.getCustomDelimiterBeginIndex;
+import static calculator.data.Format.getCustomDelimiterEndIndex;
+import static calculator.data.Format.getTargetBeginIndex;
 
 public class Extractor {
 
     public static String extractCustomDelimiter(String input) {
-        int beginIndex = input.indexOf(CUSTOM_FORMAT_PREFIX) + CUSTOM_FORMAT_PREFIX.length();
-        int endIndex = input.indexOf(CUSTOM_FORMAT_SUFFIX);
+        int beginIndex = getCustomDelimiterBeginIndex(input);
+        int endIndex = getCustomDelimiterEndIndex(input);
         return input.substring(beginIndex, endIndex);
     }
 
     public static String extractTarget(String input) {
-        int beginIndex = input.indexOf(CUSTOM_FORMAT_SUFFIX) + CUSTOM_FORMAT_SUFFIX.length();
+        int beginIndex = getTargetBeginIndex(input);
         return input.substring(beginIndex);
     }
 }
