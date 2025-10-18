@@ -1,4 +1,4 @@
-package calculator;
+package calculator.error;
 
 public class ErrorMessage {
     public static final String INVALID_INPUT_ERROR = "입력이 유효하지 않습니다.";

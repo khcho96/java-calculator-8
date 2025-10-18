@@ -1,4 +1,4 @@
-package calculator;
+package calculator.data;
 
 public class Format {
     public static final String IS_CUSTOM = "^//.+?\\\\n.*";
