@@ -1,9 +1,9 @@
 package calculator.util;
 
+import static calculator.data.Format.isNotValidInputFormat;
+import static calculator.data.Format.isNotValidNumberFormat;
 import static calculator.error.ErrorMessage.INPUT_FORMAT_ERROR;
 import static calculator.error.ErrorMessage.INVALID_INPUT_ERROR;
-import static calculator.data.Format.NUMBER_FORMAT;
-import static calculator.data.Format.VALID_INPUT_FORMAT;
 
 import java.util.List;
 
@@ -16,14 +16,14 @@ public class Validator {
     }
 
     public static void validateInputFormat(String input) {
-        if (!input.strip().matches(VALID_INPUT_FORMAT)) {
+        if (isNotValidInputFormat(input)) {
             throw new IllegalArgumentException(INPUT_FORMAT_ERROR);
         }
     }
 
     public static void validateNumber(List<String> values) {
         for (String value : values) {
-            if (!value.strip().matches(NUMBER_FORMAT) || value.strip().equals("0")) {
+            if (isNotValidNumberFormat(value)) {
                 throw new IllegalArgumentException(INPUT_FORMAT_ERROR);
             }
         }
