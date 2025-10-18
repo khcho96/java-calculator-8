@@ -6,20 +6,30 @@ import java.util.stream.Stream;
 public class Delimiter {
     private static final String DEFAULT_DELIMITER = ",:";
     private String delimiter;
+    private static Delimiter delimiterObj;
 
-    public Delimiter() {
+    private Delimiter() {
         this.delimiter = DEFAULT_DELIMITER;
+    }
+
+    public static Delimiter getInstance() {
+        if (delimiterObj == null) {
+            delimiterObj = new Delimiter();
+        }
+        return delimiterObj;
     }
 
     public void add(String customDelimiter) {
         this.delimiter = DEFAULT_DELIMITER + customDelimiter;
     }
 
-    public List<String> split(String input) {
+    public Numbers split(String target) {
         wrap();
-        return Stream.of(input.split(delimiter))
+        List<Number> numbers = Stream.of(target.split(delimiter))
                 .filter(s -> !s.isBlank())
+                .map(Number::new)
                 .toList();
+        return new Numbers(numbers);
     }
 
     private void wrap() {
