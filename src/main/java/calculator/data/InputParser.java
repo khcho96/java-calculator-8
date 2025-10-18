@@ -7,13 +7,10 @@ import static calculator.error.ErrorMessage.INVALID_INPUT_ERROR;
 import static calculator.util.Extractor.extractCustomDelimiter;
 import static calculator.util.Extractor.extractTarget;
 
-/**
- * RawInputValue 보다 좋은 이름 찾고 싶다..!!
- */
-public class RawInputValue {
+public class InputParser {
     private final String input;
 
-    public RawInputValue(String input) {
+    public InputParser(String input) {
         this.input = input;
         validateNull(input);
         validateInputFormat(input);
