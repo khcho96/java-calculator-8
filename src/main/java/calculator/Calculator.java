@@ -10,24 +10,12 @@ import static calculator.util.Validator.validateNull;
 import static calculator.util.Validator.validateNumber;
 
 import calculator.data.Delimiter;
-import calculator.io.Input;
-import calculator.io.Output;
 import java.math.BigInteger;
 import java.util.List;
 
 public class Calculator {
-    private final Input inputObj;
-    private final Output outputObj;
 
-    public Calculator(Input inputObj, Output outputObj) {
-        this.inputObj = inputObj;
-        this.outputObj = outputObj;
-    }
-
-    public void calculate() {
-        // 사용자로부터 입력을 받는다.
-        String input = inputObj.readInput();
-
+    public BigInteger calculate(String input) {
         // 입력값을 검증한다.
         validateNull(input);
         validateInputFormat(input);
@@ -54,9 +42,6 @@ public class Calculator {
         List<BigInteger> numbers = convertStringToNumber(splitValues);
 
         // 양수 값들을 모두 더해 결과를 산출한다.
-        BigInteger result = getSum(numbers);
-
-        // 결과를 출력한다.
-        outputObj.printResult(result);
+        return getSum(numbers);
     }
 }
