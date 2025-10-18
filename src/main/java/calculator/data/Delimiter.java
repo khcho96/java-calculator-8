@@ -23,7 +23,7 @@ public class Delimiter {
         this.delimiter = DEFAULT_DELIMITER + customDelimiter;
     }
 
-    public Numbers split(String target) {
+    public Numbers splitAndMapToNumbers(String target) {
         wrap();
         List<Number> numbers = Stream.of(target.split(delimiter))
                 .filter(s -> !s.isBlank())

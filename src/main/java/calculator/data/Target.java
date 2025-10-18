@@ -8,6 +8,6 @@ public class Target {
     }
 
     public Numbers split() {
-        return Delimiter.getInstance().split(target);
+        return Delimiter.getInstance().splitAndMapToNumbers(target);
     }
 }
