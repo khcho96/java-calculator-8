@@ -4,8 +4,9 @@ public class Format {
     private static final String IS_CUSTOM = "^//.+?\\\\n.*";
     private static final String CUSTOM_FORMAT_PREFIX = "//";
     private static final String CUSTOM_FORMAT_SUFFIX = "\\n";
-    public static final String VALID_INPUT_FORMAT = "^(//.+?\\\\n)?.*";
-    public static final String NUMBER_FORMAT = "\\d+";
+    private static final String VALID_INPUT_FORMAT = "^(//.+?\\\\n)?.*";
+    private static final String NUMBER_FORMAT = "\\d+";
+    private static final String ZERO_FORMAT = "0";
 
     public static boolean isCustom(String input) {
         return input.strip().matches(IS_CUSTOM);
@@ -21,5 +22,13 @@ public class Format {
 
     public static int getTargetBeginIndex(String input) {
         return input.indexOf(CUSTOM_FORMAT_SUFFIX) + CUSTOM_FORMAT_SUFFIX.length();
+    }
+
+    public static boolean isNotValidInputFormat(String input) {
+        return !input.strip().matches(VALID_INPUT_FORMAT);
+    }
+
+    public static boolean isNotValidNumberFormat(String value) {
+        return !value.strip().matches(NUMBER_FORMAT) || value.strip().equals(ZERO_FORMAT);
     }
 }
