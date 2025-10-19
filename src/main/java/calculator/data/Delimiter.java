@@ -26,7 +26,6 @@ public class Delimiter {
     public Numbers splitAndMapToNumbers(String target) {
         wrap();
         List<Number> numbers = Stream.of(target.split(delimiter))
-                .filter(s -> !s.isBlank())
                 .map(Number::new)
                 .toList();
         return new Numbers(numbers);
