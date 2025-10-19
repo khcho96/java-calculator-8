@@ -82,22 +82,6 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 구분자_여러개_연속_입력() {
-        assertSimpleTest(() -> {
-            run("1,,2,3");
-            assertThat(output()).contains("결과 : 6");
-        });
-    }
-
-    @Test
-    void 구분자_양쪽_입력() {
-        assertSimpleTest(() -> {
-            run(",1,2,3,");
-            assertThat(output()).contains("결과 : 6");
-        });
-    }
-
-    @Test
     void 공백만_입력1() {
         assertSimpleTest(() -> {
             run("");
@@ -181,6 +165,30 @@ class ApplicationTest extends NsTest {
     void 커스텀_구분자_형식_오류2() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("//;\\n1;2;3//;\\n1;2;3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 구분자_여러개_연속_입력_오류() {
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> runException("1,,2,3"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+    }
+
+    @Test
+    void 타겟_문자열_양쪽이_숫자가_아닌_입력_오류() {
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> runException(",1,2,3,"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+    }
+
+    @Test
+    void 숫자가_아닌_문자_입력_오류() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("1,a,3"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
