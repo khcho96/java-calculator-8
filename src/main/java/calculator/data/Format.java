@@ -4,7 +4,7 @@ public class Format {
     private static final String IS_CUSTOM = "^//.+?\\\\n.*";
     private static final String CUSTOM_FORMAT_PREFIX = "//";
     private static final String CUSTOM_FORMAT_SUFFIX = "\\n";
-    private static final String VALID_INPUT_FORMAT = "^(//.+?\\\\n)?.*";
+    private static final String VALID_INPUT_FORMAT = "^(//.+?\\\\n)?((\\d+).*(\\d+))*$";
     private static final String NUMBER_FORMAT = "\\d+";
     private static final String ZERO_FORMAT = "0";
 
