@@ -10,13 +10,10 @@ public class Application {
         Input inputObj = new Input();
         Output outputObj = new Output();
 
-        // 사용자로부터 입력을 받는다.
         String input = inputObj.readInput();
 
-        // 계산 결과를 얻는다.
         BigInteger result = new Calculator().calculate(input);
 
-        // 결과를 출력한다.
         outputObj.printResult(result);
     }
 }

@@ -18,23 +18,21 @@ public class InputParser {
 
     private static void validateNull(String input) {
         if (input == null) {
-            throw new IllegalArgumentException(INVALID_INPUT_ERROR);
+            throw new IllegalArgumentException(INVALID_INPUT_ERROR.getErrorMessage());
         }
     }
 
     private static void validateInputFormat(String input) {
         if (isNotValidInputFormat(input)) {
-            throw new IllegalArgumentException(INPUT_FORMAT_ERROR);
+            throw new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage());
         }
     }
 
     public Target getTargetIfCustom() {
         if (isCustom(input)) {
-            // 커스텀 구분자가 지정되었다면 커스텀 구분자를 추출 및 기본 구분자에 추가한다.
             String customDelimiter = extractCustomDelimiter(input);
             Delimiter.getInstance().add(customDelimiter);
 
-            // 타겟 문자열을 추출한다.
             String target = extractTarget(input);
             return new Target(target);
         }

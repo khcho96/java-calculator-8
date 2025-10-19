@@ -20,7 +20,7 @@ public class Number {
 
     public static void validateValue(String value) {
         if (isNotValidNumberFormat(value)) {
-            throw new IllegalArgumentException(INPUT_FORMAT_ERROR);
+            throw new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage());
         }
     }
 }
