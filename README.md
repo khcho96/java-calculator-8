@@ -74,7 +74,7 @@
 - [x] 커스텀 구분자를 지정하는데, `//.*\\n` 패턴이 맨앞에 오지 않는 경우
 - [x] 커스텀 구분자를 지정하는데, 커스텀 구분자 지정 패턴이 뒤에 또 다시 나오는 경우
 
-## 📌 요구 사항 체크
+## ✅ 요구 사항 체크
 ### 과제 진행 요구 사항
 - [x] 미션은 문자열 덧셈 계산기 저장소를 포크하고 클론하는 것으로 시작한다.
 - [x] 기능을 구현하기 전 `README.md`에 구현할 기능 목록을 정리해 추가한다.
@@ -108,4 +108,37 @@
 - [x] `camp.nextstep.edu.missionutils`에서 제공하는 `Console` API를 사용하여 구현해야 한다.
   - [x] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console의 readLine()`을 활용한다.
 
-## 📊 구현 코드 시각화(기능 구현 후 내용 추가 예정)
+## 📝 구현 코드 명세
+| Class                               | Field&Method                                                 | Role(Responsibility)                                         |
+|-------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
+| calculator.Calculator               | public BigInteger calculate(String input)                    | 입력된 문자애 대한 검증 및 파싱을 통한 계산 결과를 얻는 메인 로직                       |
+| calculator.data.Number              | private final BigInteger number                              | 하나의 값을 저장하는 변수                                               |
+|                                     | public Number(String value)                                  | 생성자 내에서 검증 및 문자를 숫자로 변환                                      |
+|                                     | public BigInteger getNumber()                                | 결과값 계산을 위한 값 반환                                              |
+|                                     | public static void validateValue(String value)               | 양수 형태의 문자열인지 검증                                              |
+| calculator.data.Numbers             | private final List<Number> numbers                           | Number 객체를 리스트로 저장하는 변수                                      |
+|                                     | public BigInteger calculateSum()                             | 리스트에 있는 Number 객체가 가진 값을 모두 더함                               |
+| calculator.data.InputParser         | private final String input                                   | 사용자의 입력값을 저징하는 변수                                            |
+|                                     | public InputParser(String input)                             | 생성자 내에서 입력값 검증                                               |
+|                                     | private static void validateNull(String input)               | 입력값이 null인지 검증                                               |
+|                                     | private static void validateInputFormat(String input)        | 입력값의 입력 형식이 올바른지 검증                                          |
+|                                     | public Target getTargetIfCustom()                            | 사용자가 커스텀 구분자를 지정했다면 커스텀 구분자를 추출해 기본 구분자에 추가하고, 타겟 문자열을 추출해서 반환 |
+| calculator.data.Target              | private final String target                                  | 타겟 문자열을 저장하는 변수                                              |
+|                                     | public Numbers split()                                       | 타겟 문자열을 구분자로 분리                                              |
+| calculator.data.Format              | public static boolean isCustom(String input)                 | 문자열이 커스텀 구분자를 지정한 형식인지 판단                                    |
+|                                     | public static int getCustomDelimiterBeginIndex(String input) | 문자열에서 커스텀 구분자의 처음 위치를 찾아서 반환                                 |
+|                                     | public static int getCustomDelimiterEndIndex(String input)   | 문자열에서 커스텀 구분자의 마지막 위치를 찾아서 반환                                |
+|                                     | public static int getTargetBeginIndex(String input)          | 문자열에서 타겟 문자열의 처음 위치를 찾아서 반환                                  |
+|                                     | public static boolean isNotValidInputFormat(String input)    | 입력값의 입력 형식이 올바른지 확인                                          |
+|                                     | public static boolean isNotValidNumberFormat(String value)   | 하나의 양수값의 형식이 올바른지 확인                                         |
+| calculator.data.Delimiter           | private String delimiter                                     | 구분자를 저장하는 변수                                                 |
+|                                     | public void add(String customDelimiter)                      | 커스텀 구분자를 기본 구분자에 추가                                         |
+|                                     | public Numbers splitAndMapToNumbers(String target)           | 타겟 문자열을 구분자로 분리한 후, 각 값을 이용해 Number 객체를 생성 하고 리스트로 만들어서 Numbers 객체로 반환 |
+|                                     | private void wrap()                                          | 구분자를 `[]`로 감싸줌                                               |
+| calculator.util.Extractor           | public static String extractCustomDelimiter(String input)    | 문자열에서 커스텀 구분자를 추출                                            |
+|                                     | public static String extractTarget(String input)             | 문자열에서 타겟 문자열을 추출                                             |
+| calculator.util.NumberConverter     | public static BigInteger convertStringToNumber(String value) | 문자열을 숫자로 변환                                                  |
+| calculator.io.Input                 | public String readInput()                                    | 사용자의 입력 값을 받음                                                |
+| calculator.io.Output                | public void printResult(BigInteger result)                   | 결과값을 출력                                                      |
+| calculator.error.ErrorMessage(Enum) | INVALID_INPUT_ERROR, INPUT_FORMAT_ERROR                      | 에러 메시지를 저장                                                   |
+|                                     | public String getErrorMessage()                              | 에러 메시지를 반환                                                   |
