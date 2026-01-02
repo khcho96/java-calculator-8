@@ -19,6 +19,7 @@ public class CalculatorController {
     public void run() {
         String rawInput = InputView.readInput();
         String input = InputParser.parseInput(rawInput);
+        int sum = calculatorService.calculate(input);
     }
 }
 
