@@ -1,6 +1,7 @@
 package calculator.domain;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Delimiter {
 
@@ -20,11 +21,8 @@ public class Delimiter {
         delimiter += customDelimiter;
     }
 
-    public String getDelimiter() {
-        return delimiter;
-    }
-
     public List<String> split(String target) {
-        return null;
+        return Stream.of(target.split(delimiter))
+                .toList();
     }
 }
