@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 
 public class Delimiter {
 
-    private static final String INIT_DELIMITER = ",:";
+    private static final String INIT_DELIMITER = "[,:]";
 
     private String delimiter;
 
@@ -18,7 +18,7 @@ public class Delimiter {
     }
 
     public void addDelimiter(String customDelimiter) {
-        delimiter += customDelimiter;
+        delimiter += "|" + customDelimiter;
     }
 
     public List<String> split(String target) {
