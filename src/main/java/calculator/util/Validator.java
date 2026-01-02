@@ -4,10 +4,9 @@ import calculator.constant.ErrorMessage;
 
 public final class Validator {
 
-    private static final String FORMAT = "(//[^\\d,:/\\n]\\\\n)?.*";
+    private static final String FORMAT = "(//[^\\d,:/n\\\\]\\\\n)?[^/n\\\\]*";
 
     private Validator() {}
-
 
     public static void validateInputFormat(String input) {
         if (!input.matches(FORMAT)) {
