@@ -22,4 +22,3 @@ public class CalculatorController {
         OutputView.printSum(sum);
     }
 }
-

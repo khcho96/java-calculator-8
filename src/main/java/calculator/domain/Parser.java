@@ -1,8 +1,6 @@
 package calculator.domain;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Parser {
 
@@ -37,7 +35,7 @@ public class Parser {
 
     private String extractCustomDelimiter(String input) {
         int beginIndex = input.lastIndexOf("/") + 1;
-        int endIndex = input.indexOf("\\") - 1;
+        int endIndex = input.indexOf("\\");
         return input.substring(beginIndex, endIndex);
     }
 
