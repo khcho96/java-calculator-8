@@ -7,6 +7,9 @@ import java.util.List;
 public class CalculatorService {
 
     public int calculate(String input) {
+        if (input.isBlank()) {
+            return 0;
+        }
         Parser parser = Parser.from(input);
         List<String> strings = parser.parseTarget();
 

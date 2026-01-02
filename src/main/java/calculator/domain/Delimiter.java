@@ -1,6 +1,7 @@
 package calculator.domain;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Delimiter {
@@ -18,7 +19,7 @@ public class Delimiter {
     }
 
     public void addDelimiter(String customDelimiter) {
-        delimiter += "|" + customDelimiter;
+        delimiter += "|" + Pattern.quote(customDelimiter);
     }
 
     public List<String> split(String target) {
