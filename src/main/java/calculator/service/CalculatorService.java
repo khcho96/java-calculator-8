@@ -12,7 +12,6 @@ public class CalculatorService {
         }
         Parser parser = Parser.from(input);
         List<String> strings = parser.parseTarget();
-
         Numbers numbers = Numbers.from(strings);
         return numbers.calculateSum();
     }
