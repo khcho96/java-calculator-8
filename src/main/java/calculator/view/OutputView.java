@@ -17,11 +17,7 @@ public class OutputView {
     private OutputView() {
     }
 
-    public static void print1() {
-
-    }
-
-    public static void printErrorMessage(IllegalArgumentException e) {
-        System.out.println(e.getMessage());
+    public static void printSum(int sum) {
+        System.out.printf("결과 : %d\n", sum);
     }
 }

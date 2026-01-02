@@ -3,10 +3,7 @@ package calculator.controller;
 import calculator.service.CalculatorService;
 import calculator.util.InputParser;
 import calculator.view.InputView;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import calculator.view.OutputView;
 
 public class CalculatorController {
 
@@ -19,7 +16,10 @@ public class CalculatorController {
     public void run() {
         String rawInput = InputView.readInput();
         String input = InputParser.parseInput(rawInput);
+
         int sum = calculatorService.calculate(input);
+
+        OutputView.printSum(sum);
     }
 }
 
